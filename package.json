@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@lingui/react": "^4.11.3",
+    "@lingui/react": "3.17.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,6 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "restart": "rm -rf src/locales && npm install && NODE_ENV=production lingui extract && NODE_ENV=production lingui compile && react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,8 +41,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@lingui/cli": "^4.11.3",
-    "@lingui/macro": "^4.11.3",
+    "@lingui/cli": "3.17.2",
+    "@lingui/macro": "3.17.2",
     "babel-plugin-macros": "^3.1.0"
   }
 }

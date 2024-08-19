@@ -3,13 +3,14 @@ import './App.css';
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { messages } from "./locales/en/messages";
-import { Trans } from '@lingui/macro';
+import { t } from '@lingui/macro';
 
 i18n.load("en", messages);
 i18n.activate("en");
 
-
 function App() {
+  const text = t({ id: 'i_am_the_id', message: 'I am the actual message'})
+
   return (
     <I18nProvider i18n={i18n}>
       <div className="App">
@@ -24,7 +25,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Trans>Learn React</Trans>
+            {text}
           </a>
         </header>
       </div>
