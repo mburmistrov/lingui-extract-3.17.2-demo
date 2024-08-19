@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Demo of issue with Lingui extract in v3.17.x
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This repository showcases an issue with Lingui v3.17.x.  
+When using Lingui v3.17.x and `NODE_ENV=production lingui extract`, the macro usages like this 
+```
+t({ id: 'i_am_the_id', message: 'I am the actual message'})
+```
+result in the output of the id instead of the message. Please see the screenshots below.
 
-## Available Scripts
+When other versions of Lingui are used, like v3.16.x or 4.x, the issue does not reproduce — the message appears as expected.  
+The issue also does not reproduce when using Lingui v3.17.x and `NODE_ENV=development lingui extract`.
 
-In the project directory, you can run:
+## Launching the demo
+1. Clone the repository
+2. Call `npm run restart`
+3. Launch http://localhost:3000 in the browser.
+4. See the issue: id is shown instead of the message.
 
-### `npm start`
+Notes:
+- You can also call `npm run restart-dev-extract`. This way `NODE_ENV=development` will be used for `lingui extract`, and all the translation will work as expected for any Lingui version, including 3.17.x.
+- You can switch to v3.16.x or v4.x branches, which use other Lingui versions. On those branches, you will always get the expected message both with `npm run restart` or `npm run restart-dev-extract`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Screenshots
+![The issue](issue.png)
+![The expected result](expected.png)

@@ -13,8 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "restart": "rm -rf src/locales && npm install && NODE_ENV=production lingui extract && NODE_ENV=production lingui compile && react-scripts start",
-    "restart-dev-extract": "rm -rf src/locales && npm install && NODE_ENV=development lingui extract && NODE_ENV=production lingui compile && react-scripts start",
+    "restart": "rm -rf node_modules && rm -rf src/locales && npm install && NODE_ENV=production lingui extract && NODE_ENV=production lingui compile && react-scripts start",
+    "restart-dev-extract": "rm -rf node_modules && rm -rf src/locales && npm install && NODE_ENV=development lingui extract && NODE_ENV=production lingui compile && react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
